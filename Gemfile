@@ -1,21 +1,25 @@
 # A sample Gemfile
 source 'https://rubygems.org'
 
+ruby "2.2.0"
+
 gem 'rack', '~> 1.5.2'
 gem 'grape', '~> 0.5.0'
 gem 'grape-swagger'
+gem 'swagger-ui'
 gem 'sprockets', '~> 2.0'
 gem 'activerecord', '~> 3.2.11', require: 'active_record'
-gem 'sqlite3', group: [:development, :test]
-gem 'pg', group: :production
+gem 'activerecord-postgresql-adapter'
 gem 'rake'
-gem 'roar'
 gem 'encode_with_alphabet'
 gem 'rack-ssl-enforcer'
 gem 'newrelic_rpm'
 gem 'newrelic-grape'
 gem 'racksh'
-gem 'fdoc'
+
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :development do
   gem 'rerun'
@@ -33,4 +37,9 @@ group :test do
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
+end
+
+# Production
+group :production do
+  gem 'pg'
 end

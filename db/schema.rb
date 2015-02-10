@@ -13,17 +13,4 @@
 
 ActiveRecord::Schema.define(:version => 20130121152007) do
 
-  create_table "accounts", :force => true do |t|
-    t.integer "partner_id", :null => false
-    t.string  "name",       :null => false
-    t.string  "email",      :null => false
-    t.string  "uuid"
-  end
-
-  create_table "partners", :force => true do |t|
-    t.string "api_key",       :null => false
-    t.string "uuid"
-    t.string "business_name"
-  end
-
 end

@@ -4,9 +4,7 @@ module API
 end
 
 require 'app/helpers/route_helpers'
-require 'app/doc/sample_requests'
 require 'app/api/base'
-require 'app/representers/base_representer'
 require 'newrelic-grape'
 
 Dir["#{File.dirname(__FILE__)}/app/models/extensions/**/*.rb"].each {|f| require f}
@@ -28,13 +26,12 @@ class API::Root < Grape::API
   end
 
   mount API::Status
-  mount API::Accounts
 
-  add_swagger_documentation mount_path: '/api/doc',
-                            api_version: 'v1',
-                            markdown: true,
-                            hide_documentation_path: true,
-                            base_path: Application.config.base_path
+  # add_swagger_documentation mount_path: '/api/doc',
+  #                           api_version: 'v1',
+  #                           markdown: true,
+  #                           hide_documentation_path: true,
+  #                           base_path: Application.config.base_path
 end
 
 SprocketsApp = Sprockets::Environment.new

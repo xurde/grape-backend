@@ -1,6 +1,5 @@
-require 'lib/fdoc/markdown_endpoint_presenter'
-
 class API::Base < Grape::API
+
   def self.inherited(subclass)
     super
     subclass.instance_eval do
@@ -31,12 +30,12 @@ class API::Base < Grape::API
     end
   end
 
-  def self.fdoc_endpoint(endpoint_name)
-    endpoint_path = Application.config.root + '/docs/fdoc/' + endpoint_name + '.fdoc'
-    @fdocs ||= {}
-    @fdocs[endpoint_name] ||= Fdoc::Endpoint.new(endpoint_path)
-    Fdoc::MarkdownEndpointPresenter.new(@fdocs[endpoint_name]).to_markdown
-  end
+  # def self.fdoc_endpoint(endpoint_name)
+  #   endpoint_path = Application.config.root + '/docs/fdoc/' + endpoint_name + '.fdoc'
+  #   @fdocs ||= {}
+  #   @fdocs[endpoint_name] ||= Fdoc::Endpoint.new(endpoint_path)
+  #   Fdoc::MarkdownEndpointPresenter.new(@fdocs[endpoint_name]).to_markdown
+  # end
 
   module CurrentResources
     def current_partner
@@ -63,4 +62,5 @@ class API::Base < Grape::API
       BaseRepresenter.represent_collection(collection, env)
     end
   end
+
 end

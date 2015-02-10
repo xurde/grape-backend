@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   sequence(:email)         { |n| "email#{n}@example.com" }
   sequence(:name)          { |n| "John Doe #{n}" }
   sequence(:business_name) { |n| "Partner #{n}" }
@@ -11,4 +12,5 @@ FactoryGirl.define do
     name
     email
   end
+  
 end
