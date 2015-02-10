@@ -3,14 +3,13 @@ Grape API example
 
 # System Requirements
 
-* ruby 1.9.3
+* ruby 2.2.0
 * see Gemfile
 
 # Installation
 
 * `bundle install`
 * `rake db:migrate db:test:prepare`
-* `rake db:seed`
 * `rspec spec`
 
 # Development
@@ -22,5 +21,4 @@ Grape API example
 
 # Heroku
 
-[This code on heroku](https://grape-api-example.herokuapp.com/)  
 Use this `special-key` in /api/doc swagger interface: `e711541a4a79b037c15a8b01314d667e`
