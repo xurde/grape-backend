@@ -23,4 +23,3 @@ ActiveRecord::Base.establish_connection(db_config)
 specific_environment = "config/environments/#{Application.config.env}.rb"
 require specific_environment if File.exists? specific_environment
 Dir["config/initializers/**/*.rb"].each {|f| require f}
-

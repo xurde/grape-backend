@@ -16,6 +16,7 @@ gem 'rack-ssl-enforcer'
 gem 'newrelic_rpm'
 gem 'newrelic-grape'
 gem 'racksh'
+# gem 'devise'
 
 group :development, :test do
   gem 'sqlite3'

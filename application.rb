@@ -7,9 +7,14 @@ require 'app/helpers/route_helpers'
 require 'app/api/base'
 require 'newrelic-grape'
 
-Dir["#{File.dirname(__FILE__)}/app/models/extensions/**/*.rb"].each {|f| require f}
-Dir["#{File.dirname(__FILE__)}/app/models/**/*.rb"].each {|f| require f}
-Dir["#{File.dirname(__FILE__)}/app/**/*.rb"].each {|f| require f}
+Dir["#{File.dirname(__FILE__)}/app/models/**/*.rb"].each {|f|
+    puts "Autoloading file........... #{f}"
+    require f
+  }
+Dir["#{File.dirname(__FILE__)}/app/**/*.rb"].each {|f|
+    puts "Autoloading file........... #{f}"
+    require f
+  }
 
 ActiveRecord::Base.instance_eval do
   include ActiveModel::MassAssignmentSecurity
@@ -27,11 +32,11 @@ class API::Root < Grape::API
 
   mount API::Status
 
-  # add_swagger_documentation mount_path: '/api/doc',
-  #                           api_version: 'v1',
-  #                           markdown: true,
-  #                           hide_documentation_path: true,
-  #                           base_path: Application.config.base_path
+  add_swagger_documentation mount_path: '/api/doc',
+                            api_version: 'v1',
+                            markdown: false,
+                            hide_documentation_path: true,
+                            base_path: Application.config.base_path
 end
 
 SprocketsApp = Sprockets::Environment.new
